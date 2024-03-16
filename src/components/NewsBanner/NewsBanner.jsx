@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./styles.module.css";
-import { formatTimeAgo } from "../helpers/formatTimeAgo";
+import { formatTimeAgo } from "../../helpers/formatTimeAgo";
 import Image from "../Image/Image";
 
 const NewsBanner = ({ item }) => {

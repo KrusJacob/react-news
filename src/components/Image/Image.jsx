@@ -1,7 +1,6 @@
 import React from "react";
 
 import styles from "./styles.module.css";
-import { formatTimeAgo } from "../helpers/formatTimeAgo";
 
 const Image = ({ image }) => {
   return (

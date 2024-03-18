@@ -6,7 +6,9 @@
     box-sizing: border-box;
     overflow-x: auto;
     white-space: nowrap;
-    scrollbar-width: none;
+    padding-bottom: 12px;
+    scrollbar-color: #6969dd #f2f4f5;
+    scrollbar-width: thin;
 }
 
 .item,

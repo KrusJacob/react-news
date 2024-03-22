@@ -1,13 +1,18 @@
-import React from "react";
 import styles from "./styles.module.css";
 import Categories from "../Categories/Categories";
 import Search from "../Search/Search";
 import { useFetch } from "../../helpers/hooks/useFetch";
 import { getCatagories } from "../../api/ApiNews";
 import Slider from "../Slider/Slider";
+import { IFilters, СategoriesApiResponse } from "../../interfaces";
 
-const NewsFilters = ({ filters, changeFilter }) => {
-  const { data: dateCategories } = useFetch(getCatagories);
+interface Props {
+  filters: IFilters;
+  changeFilter: (key: string, value: string | number | null) => void;
+}
+
+const NewsFilters = ({ filters, changeFilter }: Props) => {
+  const { data: dateCategories } = useFetch<СategoriesApiResponse, null>(getCatagories);
 
   return (
     <div className={styles.filters}>

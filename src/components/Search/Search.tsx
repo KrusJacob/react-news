@@ -1,9 +1,11 @@
-import React from "react";
-
 import styles from "./styles.module.css";
-import { formatDate } from "../../helpers/formatDate";
 
-const Search = ({ keywords, setKeywords }) => {
+interface Props {
+  keywords: string;
+  setKeywords: (keywords: string) => void;
+}
+
+const Search = ({ keywords, setKeywords }: Props) => {
   return (
     <div className={styles.search}>
       <input

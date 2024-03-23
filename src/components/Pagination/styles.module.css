@@ -27,3 +27,22 @@
     align-items: center;
     justify-content: center;
 }
+
+.pagination.dark .pageNumber,
+.pagination.dark .arrow {
+    background-color: #23272f;
+    color: #f6f7f9;
+}
+
+.pagination.light .pageNumber,
+.pagination.light .arrow {
+    background-color: white;
+    color: black;
+}
+
+.pagination.dark .arrow:disabled,
+.pagination.light .arrow:disabled,
+.pagination.dark .pageNumber:disabled,
+.pagination.light .pageNumber:disabled {
+    color: gray;
+}

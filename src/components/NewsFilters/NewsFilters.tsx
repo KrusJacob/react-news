@@ -1,18 +1,19 @@
 import styles from "./styles.module.css";
 import Categories from "../Categories/Categories";
 import Search from "../Search/Search";
-import { useFetch } from "../../helpers/hooks/useFetch";
-import { getCatagories } from "../../api/ApiNews";
 import Slider from "../Slider/Slider";
-import { IFilters, СategoriesApiResponse } from "../../interfaces";
+import { IFilters } from "../../interfaces";
+import { useGetCatagoriesQuery } from "../../services/newsApi";
+import { useAppDispatch } from "../../store";
+import { setFilters } from "../../store/slices/newsSlice";
 
 interface Props {
   filters: IFilters;
-  changeFilter: (key: string, value: string | number | null) => void;
 }
 
-const NewsFilters = ({ filters, changeFilter }: Props) => {
-  const { data: dateCategories } = useFetch<СategoriesApiResponse, null>(getCatagories);
+const NewsFilters = ({ filters }: Props) => {
+  const { data: dateCategories } = useGetCatagoriesQuery(null);
+  const dispatch = useAppDispatch();
 
   return (
     <div className={styles.filters}>
@@ -21,12 +22,15 @@ const NewsFilters = ({ filters, changeFilter }: Props) => {
           <Categories
             categories={dateCategories.categories}
             selectedCategory={filters.category}
-            setSelectedCategory={(category) => changeFilter("category", category)}
+            setSelectedCategory={(category) => dispatch(setFilters({ key: "category", value: category }))}
           />
         </Slider>
       ) : null}
 
-      <Search keywords={filters.keywords} setKeywords={(keywords) => changeFilter("keywords", keywords)} />
+      <Search
+        keywords={filters.keywords}
+        setKeywords={(keywords) => dispatch(setFilters({ key: "keywords", value: keywords }))}
+      />
     </div>
   );
 };

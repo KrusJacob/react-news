@@ -1,4 +1,3 @@
-import { createContext, useState } from "react";
 import Header from "./components/Header/Header";
 import Main from "./pages/Main/Main";
 import { useTheme } from "./context/ThemeContext";

@@ -3,7 +3,7 @@ import Skeleton from "../../components/Skeleton/Skeleton";
 import { DirectionType, SkeletonType } from "../../interfaces";
 
 interface Props {
-  isLodaing: boolean;
+  isLoading: boolean;
 }
 
 function withSkeleton<P extends object>(
@@ -13,8 +13,8 @@ function withSkeleton<P extends object>(
   direction?: DirectionType
 ) {
   return function WithSkeleton(props: Props & P) {
-    const { isLodaing, ...restProps } = props;
-    if (isLodaing) {
+    const { isLoading, ...restProps } = props;
+    if (isLoading) {
       return <Skeleton type={type} count={count} direction={direction} />;
     }
 

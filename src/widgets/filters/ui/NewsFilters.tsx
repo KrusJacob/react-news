@@ -5,22 +5,22 @@ import Slider from "@/features/slider/ui/Slider";
 import { IFilters } from "@/shared/interfaces";
 import { setFilters } from "@/entities/news/model/newsSlice";
 import styles from "./styles.module.css";
-import { useGetCatagoriesQuery } from "@/entities/category/api/categoriesApi";
+import { CategoryType } from "@/entities/category";
 
 interface Props {
   filters: IFilters;
+  categories: CategoryType[];
 }
 
-const NewsFilters = ({ filters }: Props) => {
-  const { data: dateCategories } = useGetCatagoriesQuery(null);
+const NewsFilters = ({ filters, categories }: Props) => {
   const dispatch = useAppDispatch();
 
   return (
     <div className={styles.filters}>
-      {dateCategories ? (
+      {categories ? (
         <Slider step={180}>
           <Categories
-            categories={dateCategories.categories}
+            categories={categories}
             selectedCategory={filters.category}
             setSelectedCategory={(category) => dispatch(setFilters({ key: "category", value: category }))}
           />

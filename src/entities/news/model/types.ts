@@ -2,7 +2,7 @@ import { CategoryType } from "@/entities/category";
 
 export interface INews {
   author: string;
-  category: CategoryType;
+  category: CategoryType[];
   description: string;
   id: string;
   image: string;

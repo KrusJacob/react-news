@@ -26,6 +26,13 @@
   color: #f6f7f9;
 }
 
+a {
+  cursor: pointer;
+}
+.dark a {
+  color: aqua;
+}
+
 .app.light p,
 .app.light h3,
 .app.light h1 {

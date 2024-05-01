@@ -2,6 +2,13 @@
     display: flex;
     width: 100%;
     gap: 12px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.card:hover {
+    background-color: rgba(180, 180, 180, 0.3);
+    transition: 0.4s all;
 }
 
 .banner {
@@ -23,8 +30,8 @@
     gap: 8px;
 }
 .wrapper {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     background-color: #f2f4f5;
     background-position: center;
     background-size: cover;

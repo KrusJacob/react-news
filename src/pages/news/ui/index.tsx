@@ -19,7 +19,6 @@ export const NewsPage = () => {
 
   return (
     <main className={styles.news}>
-      {/* <h1> {currentNews?.title}</h1> */}
       <NewsDetails item={currentNews} />
     </main>
   );

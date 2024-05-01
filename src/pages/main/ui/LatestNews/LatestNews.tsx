@@ -11,7 +11,7 @@ const LatestNews = () => {
   const dipatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const navigateTo = (news: INews) => {
+  const onClickToNews = (news: INews) => {
     dipatch(setCurrentNews(news));
     navigate(`/news/${news.id}`);
   };
@@ -21,7 +21,7 @@ const LatestNews = () => {
       <NewsList
         direction="row"
         type="banner"
-        viewNewsSlot={(news) => <a onClick={() => navigateTo(news)}>view more...</a>}
+        onClickToNews={(news) => onClickToNews(news)}
         news={data && data.news}
         isLoading={isLoading}
       />

@@ -8,13 +8,13 @@ interface Props {
 }
 
 const NewsDetails = ({ item }: Props) => {
-  console.log(item.category);
   return (
     <div className={styles.details}>
       <div className={styles.description}>
         <h1>{item.title}</h1>
         <p>
           {item.description} ({item.language})
+          <br />
           <a className={styles.link} target="_blank" href={item.url}>
             {` Read more...`}
           </a>
@@ -23,8 +23,12 @@ const NewsDetails = ({ item }: Props) => {
           {formatTimeAgo(item.published)} by {item.author}
         </p>
         <ul>
-          {item.category.map((item) => {
-            return <button className={styles.category}>{item}</button>;
+          {item.category.map((item, i) => {
+            return (
+              <button key={i} className={styles.category}>
+                {item}
+              </button>
+            );
           })}
         </ul>
       </div>
